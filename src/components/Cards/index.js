@@ -16,7 +16,6 @@ const Cards = ({ timetable }) => {
       ?.slice(first, last)
       .map(({ name, image, uuid, objects }) => {
         const formatedSessions = combineSeances(objects[0].halls);
-        console.log(formatedSessions);
         if (formatedSessions.length === 0) return null;
         return (
           <SwiperSlide key={uuid}>
