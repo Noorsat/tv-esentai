@@ -3,9 +3,10 @@ import moment from "moment";
 
 export default function combineSeances(data) {
   const sessions = [];
-  if (data["Standart"]) {
-    for (let i = 0; i < data["Standart"].seances.length; i++) {
-      sessions.push(data["Standart"].seances[i].timeframe.start);
+  console.log(data);
+  if (data["Standard"]) {
+    for (let i = 0; i < data["Standard"].seances.length; i++) {
+      sessions.push(data["Standard"].seances[i].timeframe.start);
     }
   }
 
@@ -36,8 +37,6 @@ export default function combineSeances(data) {
   const sliced = sessions.map((session) => sliceTime(session));
 
   const upcoming = sessions.filter((session) => moment(session).isAfter(moment())).map((session) => moment(session).format("HH:mm"));
-
-  console.log(upcoming)
 
   return sortByTime(upcoming);
 }
