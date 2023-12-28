@@ -34,7 +34,7 @@ export default function combineSeances(data) {
     }
   }
 
-  const sliced = sessions.map((session) => sliceTime(session));
+  //const sliced = sessions.map((session) => sliceTime(session));
 
   const upcoming = sessions.filter((session) => moment(session).isAfter(moment())).map((session) => moment(session).format("HH:mm"));
 
