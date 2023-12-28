@@ -1,4 +1,4 @@
-import { sliceTime, sortByTime } from "./getFormatData";
+import { sortByTime } from "./getFormatData";
 import moment from "moment";
 
 export default function combineSeances(data) {
