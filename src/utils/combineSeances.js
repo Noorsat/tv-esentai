@@ -1,9 +1,9 @@
+import date from "./getDate";
 import { sortByTime } from "./getFormatData";
 import moment from "moment";
 
 export default function combineSeances(data) {
   const sessions = [];
-  console.log(data);
   if (data["Standard"]) {
     for (let i = 0; i < data["Standard"].seances.length; i++) {
       sessions.push(data["Standard"].seances[i].timeframe.start);
@@ -36,7 +36,7 @@ export default function combineSeances(data) {
 
   //const sliced = sessions.map((session) => sliceTime(session));
 
-  const upcoming = sessions.filter((session) => moment(session).isAfter(moment())).map((session) => moment(session).format("HH:mm"));
+  const upcoming = sessions.filter((session) => moment(session).isAfter(moment(date))).map((session) => moment(session).format("HH:mm"));
 
   return sortByTime(upcoming);
 }
