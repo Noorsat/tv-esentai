@@ -51,11 +51,14 @@ const MainPage = () => {
 
   if (loading) return <Spinner />;
 
+  console.log(window.location.search.split('=')[1])
+
   return (
     <div className="container">
       <div className="page__wrapper">
-        {/* <LeftTable timetable={timetable} /> */}
-        <Cards timetable={timetable} />
+        {
+          timetable && <Cards timetable={window.location.search.split('=')[1] === 'left' ? timetable.slice(0, 7) : timetable.slice(7)} />
+        } 
       </div>
     </div>
   );
