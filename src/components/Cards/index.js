@@ -63,8 +63,10 @@ const Cards = ({ timetable }) => {
           {renderItems()}
         </Swiper>
       </div>
-      <h1 className="cards__footer">Покупайте билеты на сайте kinopark.kz</h1> 
-      <img src={qr} width={300} alt='qr' />
+      <div style={{display:'flex', alignItems: 'center', justifyContent: 'center', gap: '30px', marginTop: 20}}>
+        <h1 className="cards__footer">Покупайте билеты на сайте kinopark.kz</h1> 
+        <img src={qr} width={250} alt='qr' />
+      </div>
     </div>
   );
 };
