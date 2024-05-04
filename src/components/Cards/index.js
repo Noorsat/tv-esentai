@@ -64,7 +64,7 @@ const Cards = ({ timetable }) => {
         </Swiper>
       </div>
       <h1 className="cards__footer">Покупайте билеты на сайте kinopark.kz</h1> 
-      <img src={qr} width={300}/>
+      <img src={qr} width={300} alt='qr' />
     </div>
   );
 };
