@@ -84,6 +84,11 @@ h3 {
   margin-top: 0.2%;
   margin-bottom: 0.5%;
 }
+.cards__footer{
+  margin-top: 30px;
+  font-size: 120px;
+  margin-bottom: 30px;
+}
 .card__time {
   margin-top: 15px;
   margin-right: 15px;
