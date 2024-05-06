@@ -64,3 +64,6 @@
   }
 }
 
+.swiper-wrapper{
+  justify-content: flex-end!important;
+}

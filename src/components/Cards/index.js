@@ -35,7 +35,7 @@ const Cards = ({ timetable }) => {
           )
         })
       }else{
-        return seances.slice(7).reverse().map(({image, name, objects, uuid}) => {
+        return seances.slice(7, 14).reverse().map(({image, name, objects, uuid}) => {
           const formatedSessions = combineSeances(objects[0].halls);
           return (
             <SwiperSlide key={uuid}>
@@ -63,9 +63,9 @@ const Cards = ({ timetable }) => {
           {renderItems()}
         </Swiper>
       </div>
-      <div style={{display:'flex', alignItems: 'center', justifyContent: 'center', gap: '30px', marginTop: 20}}>
+      <div style={{display:'flex', alignItems: 'center', gap: '30px', marginTop: 20, position: 'absolute', bottom: 20, zIndex: 100, left: '50%', transform: 'translateX(-50%)'}}>
         <h1 className="cards__footer">Покупайте билеты на сайте kinopark.kz</h1> 
-        <img src={qr} width={250} alt='qr' />
+        <img src={qr} width={125} alt='qr' />
       </div>
     </div>
   );
