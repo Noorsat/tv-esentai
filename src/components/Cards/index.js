@@ -65,7 +65,7 @@ const Cards = ({ timetable }) => {
       </div>
       <div style={{display:'flex', alignItems: 'center', gap: '30px', marginTop: 20, position: 'absolute', bottom: 20, zIndex: 100, left: '50%', transform: 'translateX(-50%)'}}>
         <h1 className="cards__footer">Покупайте билеты на сайте kinopark.kz</h1> 
-        <img src={qr} width={125} alt='qr' />
+        <img src={qr} width={100} alt='qr' />
       </div>
     </div>
   );

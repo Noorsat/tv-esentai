@@ -86,8 +86,9 @@ h3 {
 }
 .cards__footer{
   margin-top: 30px;
-  font-size: 60px;
+  font-size: 50px;
   margin-bottom: 30px;
+  white-space: nowrap;
 }
 .card__time {
   margin-top: 15px;
