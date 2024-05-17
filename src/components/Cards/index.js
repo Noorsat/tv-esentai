@@ -7,47 +7,26 @@ import "swiper/css/scrollbar";
 import Card from "../Card";
 import "../../styles/right-style.css";
 import { combineSeances } from "../../utils";
-import qr from '../../images/qr.png';
 
 const Cards = ({ timetable }) => {
   const sessions = timetable;
 
-  const renderItems = () => {
-     const seances = sessions.map((session) => {
-        const formatedSessions = combineSeances(session.objects[0].halls);
+  const renderItems = (first, last) => {
+    return sessions
+      ?.slice(first, last)
+      .map(({ name, image, uuid, objects }) => {
+        const formatedSessions = combineSeances(objects[0].halls);
         if (formatedSessions.length === 0) return null;
-        else return session
-      }).filter(session => session !== null);
-
-      const monitor = window.location.search.split('=')[1];
-
-      if (monitor === 'right'){
-        return seances.slice(0, 7).reverse().map(({image, name, objects, uuid}) => {
-          const formatedSessions = combineSeances(objects[0].halls);
-          return (
-            <SwiperSlide key={uuid}>
-              <Card 
-                image={image.vertical}
-                title={name}
-                times={formatedSessions}
-              />
-            </SwiperSlide>
-          )
-        })
-      }else{
-        return seances.slice(7, 14).reverse().map(({image, name, objects, uuid}) => {
-          const formatedSessions = combineSeances(objects[0].halls);
-          return (
-            <SwiperSlide key={uuid}>
-              <Card 
-                image={image.vertical}
-                title={name}
-                times={formatedSessions}
-              />
-            </SwiperSlide>
-          )
-        })
-      }
+        return (
+          <SwiperSlide key={uuid}>
+            <Card
+              image={image.vertical}
+              title={name}
+              times={formatedSessions}
+            />
+          </SwiperSlide>
+        );
+      });
   };
 
   return (
@@ -58,14 +37,10 @@ const Cards = ({ timetable }) => {
           modules={[Navigation, Pagination, Autoplay]}
           slidesPerView={7}
           autoplay={{ delay: 18000 }}
-          slidesPerGroup={0}
+          slidesPerGroup={7}
         >
-          {renderItems()}
+          {renderItems(0, 20)}
         </Swiper>
-      </div>
-      <div style={{display:'flex', alignItems: 'center', gap: '30px', marginTop: 20, position: 'absolute', bottom: 20, zIndex: 100, left: '50%', transform: 'translateX(-50%)'}}>
-        <h1 className="cards__footer">Покупайте билеты на сайте kinopark.kz</h1> 
-        <img src={qr} width={125} alt='qr' />
       </div>
     </div>
   );
