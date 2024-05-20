@@ -12,9 +12,8 @@ const Cards = ({ timetable }) => {
   const sessions = timetable;
 
   const renderItems = (first, last) => {
-    return sessions
-      ?.slice(first, last)
-      .map(({ name, image, uuid, objects }) => {
+    console.log(sessions)
+    return sessions?.map(({ name, image, uuid, objects }) => {
         const formatedSessions = combineSeances(objects[0].halls);
         if (formatedSessions.length === 0) return null;
         return (
