@@ -29,6 +29,25 @@ const MainPage = () => {
     };
   }, []);
 
+  setReloadTimer();
+
+  function setReloadTimer() {
+    const now = new Date();
+    const reloadTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 7, 0, 0); 
+  
+    if (now > reloadTime) {
+      reloadTime.setDate(reloadTime.getDate() + 1);
+    }
+  
+    const timeUntilReload = reloadTime - now;
+
+    setTimeout(reloadPage, timeUntilReload);
+  }
+
+  function reloadPage() {
+    window.location.reload(true);
+  }
+
   if (loading) return <Spinner />;
 
   return (
