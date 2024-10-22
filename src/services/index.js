@@ -4,7 +4,7 @@ import { date } from "../utils";
 export const getData = async () => {
   try {
     const response = await fetch(
-      `${BASE_URL}/api/schedule/hall_format?city=${cityId}&start=${date}&object=${cinemaId}`,
+      `${BASE_URL}/api/schedule/hall_format?city=${cityId}&start=${moment().format("YYYY-MM-DDTHH:mm:ss")}&object=${cinemaId}`,
       {
         method: "GET",
         headers: {
