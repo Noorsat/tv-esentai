@@ -1,5 +1,5 @@
+import moment from "moment";
 import { BASE_URL, cinemaId, cityId, token } from "../constants";
-import { date } from "../utils";
 
 export const getData = async () => {
   try {
